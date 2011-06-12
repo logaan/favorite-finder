@@ -15,9 +15,15 @@ get "/" do
   session["frob"] = flickr.auth.getFrob
   auth_url = FlickRaw.auth_url(:frob => session["frob"], :perms => 'read')
   <<-HERE
-    <p>#{session["frob"]}</p>
-    <a href="#{auth_url}" target="_blank">Click here to authenticate</a><br />
-    <a href="/check_authentication">Once youve authenticated click here</a>
+    <p>The idea here is that people who take photos that you like like favorite
+    photos that you also like. So this little app will show you some of your
+    favorites. Click on a photo to load in some of the favorites from the
+    photographer. New photos will show up at the end of the list. Hope you find
+    some gems.</p>
+    <p>
+      <a href="#{auth_url}" target="_blank">Click here to authenticate</a><br />
+      <a href="/check_authentication">Once youve authenticated click here</a>
+    </p>
   HERE
 end
 
