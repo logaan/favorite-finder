@@ -5,8 +5,9 @@ require "sinatra"
 require "flickraw-cached"
 require "peach"
 
-FlickRaw.api_key="72245bbf7542ad1b377334731cb01cb4"
-FlickRaw.shared_secret="9fba7d0bde24db8e"
+config = YAML.load_file("config.yml")
+FlickRaw.api_key = config["api_key"]
+FlickRaw.shared_secret = config["shared_secret"]
 
 enable :sessions
 set :public, File.dirname(__FILE__)
